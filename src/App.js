@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Form from "./Form";
 import Container from "./Content";
+import Result from "./Result";
 
 function App() {
   return (
@@ -10,9 +11,7 @@ function App() {
         subtitleText={"Kursy walut z dnia 24 lipca 2023 roku"}
       />
       <Form />
-      <div className="form__resultContainer">
-        <p>Wynik:</p>
-      </div>
+      <Result />
     </Container>
   );
 }
