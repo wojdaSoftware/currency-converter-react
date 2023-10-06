@@ -13,4 +13,5 @@ body {
   background-repeat: repeat-y;
   background-size: cover;
   font-family: 'Poppins', sans-serif;
+  margin: 0 20px;
 }

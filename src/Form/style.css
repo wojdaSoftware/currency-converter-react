@@ -1,3 +1,8 @@
+.form {
+    margin-top: 10px;
+    width: 100%;
+}
+
 .form__fieldset {
     background-color: #cfcfcf;
     border: 1px solid #cfcfcf;
@@ -45,6 +50,7 @@
 }
 
 .form__resultContainer {
+    width: 100%;
     max-width: 400px;
     margin: auto;
     margin-top: 20px;

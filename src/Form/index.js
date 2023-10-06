@@ -1,7 +1,7 @@
 import './style.css'
 
 const Form = () => (
-    <form>
+    <form className="form">
         <fieldset className="form__fieldset">
             <legend className="form__legend">Wprowadź dane</legend>
             <p>
