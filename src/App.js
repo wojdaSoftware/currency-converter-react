@@ -1,10 +1,12 @@
+import Header from "./Header";
+
 function App() {
   return (
     <>
-      <header className="header">
-        <h1 className="header__title">$ KALKULATOR WALUT $</h1>
-        <p className="header__paragraph">Kursy walut z dnia 24 lipca 2023 roku</p>
-      </header>
+      <Header
+        title={"$ KALKULATOR WALUT $"}
+        subtitleText={"Kursy walut z dnia 24 lipca 2023 roku"}
+      />
       <main className="main">
         <form>
           <fieldset className="form__fieldset">
@@ -15,18 +17,18 @@ function App() {
                 <input type="number" name="amount" step="0.01" min="0.01" className="form__field"
                   required />
               </label>
-              <select name="currency-input" className="form__field form__field--secondary">
-                <option selected>PLN</option>
+              <select name="currency-input" className="form__field form__field--secondary" defaultValue={"PLN"}>
+                <option>PLN</option>
                 <option>USD</option>
                 <option>EUR</option>
               </select>
             </p>
             <p>
               <label>
-                <span className="form__labelText">Wybierz walutę:</span> <select name="currency-output"
-                  className="form__field">
+                <span className="form__labelText">Wybierz walutę:</span>
+                <select name="currency-output" className="form__field" defaultValue={"USD"}>
                   <option value="PLN">Złoty (PLN)</option>
-                  <option value="USD" selected>Dolar amerykański (USD)</option>
+                  <option value="USD">Dolar amerykański (USD)</option>
                   <option value="EUR">Euro (EUR)</option>
                 </select>
               </label>
