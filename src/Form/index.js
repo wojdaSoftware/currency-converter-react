@@ -1,15 +1,63 @@
 import { useState } from 'react';
 import './style.css'
 
-const Form = () => {
+const Form = ({ }) => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [inputCurrency, setInputCurrency] = useState("PLN");
     const [outputCurrency, setOutputCurrency] = useState("EUR")
+    let conversionResult = {};
+
+    const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
+        let exchangeRate;
+
+        switch (inputCurrency) {
+            case "PLN":
+                switch (outputCurrency) {
+                    case "PLN":
+                        exchangeRate = 1;
+                        return (currencyAmount * exchangeRate);
+                    case "USD":
+                        exchangeRate = 0.25;
+                        return (currencyAmount * exchangeRate);
+                    case "EUR":
+                        exchangeRate = 0.22;
+                        return (currencyAmount * exchangeRate);
+                }
+            case "USD":
+                switch (outputCurrency) {
+                    case "PLN":
+                        exchangeRate = 4.01;
+                        return (currencyAmount * exchangeRate);
+                    case "USD":
+                        exchangeRate = 1;
+                        return (currencyAmount * exchangeRate);
+                    case "EUR":
+                        exchangeRate = 0.90;
+                        return (currencyAmount * exchangeRate);
+                }
+            case "EUR":
+                switch (outputCurrency) {
+                    case "PLN":
+                        exchangeRate = 4.45;
+                        return (currencyAmount * exchangeRate);
+                    case "USD":
+                        exchangeRate = 1.11;
+                        return (currencyAmount * exchangeRate);
+                    case "EUR":
+                        exchangeRate = 1;
+                        return (currencyAmount * exchangeRate);
+                }
+        }
+    };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        setCurrencyAmount("");
-    }
+        conversionResult = {
+            currencyAmount: convertCurrency(currencyAmount, inputCurrency, outputCurrency),
+            currencyType: outputCurrency,
+        };
+        console.log(conversionResult);
+    };
 
     return (
         <form className="form" onSubmit={onFormSubmit}>
