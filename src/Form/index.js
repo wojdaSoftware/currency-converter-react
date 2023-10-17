@@ -6,6 +6,7 @@ const Form = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+        setCurrencyAmount("");
     }
 
     return (
