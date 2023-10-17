@@ -4,8 +4,13 @@ import './style.css'
 const Form = ({ }) => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [inputCurrency, setInputCurrency] = useState("PLN");
-    const [outputCurrency, setOutputCurrency] = useState("EUR")
+    const [outputCurrency, setOutputCurrency] = useState("EUR");
+    const [resultText, setResultText] = useState("Tu pojawi się wynik")
     let conversionResult = {};
+
+    const updateResultText = (currencyAmount, conversionResult, outputCurrency, inputCurrency) => (
+        `${currencyAmount} ${inputCurrency} = ${conversionResult.toFixed(2)} ${outputCurrency}`
+    );
 
     const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
         let exchangeRate;
@@ -52,8 +57,8 @@ const Form = ({ }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency)
-        console.log(conversionResult);
+        conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency);
+        setResultText(updateResultText(currencyAmount, conversionResult, outputCurrency, inputCurrency));
     };
 
     return (
@@ -102,7 +107,7 @@ const Form = ({ }) => {
                 </p>
                 <button className="form__button">KONWERTUJ</button>
                 <div className="form__resultText">
-                    Wynik:
+                    {resultText}
                 </div>
             </fieldset>
         </form>
