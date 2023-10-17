@@ -8,7 +8,7 @@ function App() {
     <Container>
       <Header
         title={"$ KALKULATOR WALUT $"}
-        subtitleText={"Kursy walut z dnia 24 lipca 2023 roku"}
+        subtitle={"Kursy walut z dnia 24 lipca 2023 roku"}
       />
       <Form />
       <Result />
