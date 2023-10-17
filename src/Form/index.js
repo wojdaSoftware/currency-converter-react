@@ -52,10 +52,7 @@ const Form = ({ }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        conversionResult = {
-            currencyAmount: convertCurrency(currencyAmount, inputCurrency, outputCurrency),
-            currencyType: outputCurrency,
-        };
+        conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency)
         console.log(conversionResult);
     };
 
@@ -104,8 +101,12 @@ const Form = ({ }) => {
                     </label>
                 </p>
                 <button className="form__button">KONWERTUJ</button>
+                <div className="form__resultText">
+                    Wynik:
+                </div>
             </fieldset>
         </form>
+
     )
 };
 
