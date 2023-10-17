@@ -6,58 +6,25 @@ const Form = ({ }) => {
     const [inputCurrency, setInputCurrency] = useState("PLN");
     const [outputCurrency, setOutputCurrency] = useState("EUR");
     const [resultText, setResultText] = useState("Tu pojawi się wynik")
-    let conversionResult = {};
 
     const updateResultText = (currencyAmount, conversionResult, outputCurrency, inputCurrency) => (
         `${currencyAmount} ${inputCurrency} = ${conversionResult.toFixed(2)} ${outputCurrency}`
     );
 
     const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
-        let exchangeRate;
+        const exchangeRates = {
+            PLN: { PLN: 1, USD: 0.25, EUR: 0.22 },
+            USD: { PLN: 4.01, USD: 1, EUR: 0.90 },
+            EUR: { PLN: 4.45, USD: 1.11, EUR: 1 },
+        };
 
-        switch (inputCurrency) {
-            case "PLN":
-                switch (outputCurrency) {
-                    case "PLN":
-                        exchangeRate = 1;
-                        return (currencyAmount * exchangeRate);
-                    case "USD":
-                        exchangeRate = 0.25;
-                        return (currencyAmount * exchangeRate);
-                    case "EUR":
-                        exchangeRate = 0.22;
-                        return (currencyAmount * exchangeRate);
-                }
-            case "USD":
-                switch (outputCurrency) {
-                    case "PLN":
-                        exchangeRate = 4.01;
-                        return (currencyAmount * exchangeRate);
-                    case "USD":
-                        exchangeRate = 1;
-                        return (currencyAmount * exchangeRate);
-                    case "EUR":
-                        exchangeRate = 0.90;
-                        return (currencyAmount * exchangeRate);
-                }
-            case "EUR":
-                switch (outputCurrency) {
-                    case "PLN":
-                        exchangeRate = 4.45;
-                        return (currencyAmount * exchangeRate);
-                    case "USD":
-                        exchangeRate = 1.11;
-                        return (currencyAmount * exchangeRate);
-                    case "EUR":
-                        exchangeRate = 1;
-                        return (currencyAmount * exchangeRate);
-                }
-        }
+        const exchangeRate = exchangeRates[inputCurrency][outputCurrency];
+        return (currencyAmount * exchangeRate);
     };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency);
+        const conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency);
         setResultText(updateResultText(currencyAmount, conversionResult, outputCurrency, inputCurrency));
     };
 
