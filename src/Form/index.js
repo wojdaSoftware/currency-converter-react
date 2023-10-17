@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './style.css'
 
-const Form = ({ }) => {
+const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [inputCurrency, setInputCurrency] = useState("PLN");
     const [outputCurrency, setOutputCurrency] = useState("EUR");
@@ -19,7 +19,7 @@ const Form = ({ }) => {
         };
 
         const exchangeRate = exchangeRates[inputCurrency][outputCurrency];
-        return (currencyAmount * exchangeRate);
+        return (currencyAmount * exchangeRate).toFixed(2);
     };
 
     const onFormSubmit = (event) => {
