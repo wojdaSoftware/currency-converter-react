@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './style.css'
 
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [inputCurrency, setInputCurrency] = useState("PLN");
     const [outputCurrency, setOutputCurrency] = useState("EUR");
-    const [resultText, setResultText] = useState("Tu pojawi się wynik")
+    const [conversionResult, setConversionResult] = useState("");
 
-    const updateResultText = (currencyAmount, conversionResult, outputCurrency, inputCurrency) => (
+    /* const updateResultText = (currencyAmount, conversionResult, outputCurrency, inputCurrency) => (
         `${currencyAmount} ${inputCurrency} = ${conversionResult.toFixed(2)} ${outputCurrency}`
-    );
+    ); */
 
     const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
         const exchangeRates = {
@@ -22,14 +22,12 @@ const Form = () => {
         return (currencyAmount * exchangeRate).toFixed(2);
     };
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-        const conversionResult = convertCurrency(currencyAmount, inputCurrency, outputCurrency);
-        setResultText(updateResultText(currencyAmount, conversionResult, outputCurrency, inputCurrency));
-    };
+    useEffect(() => {
+        setConversionResult(convertCurrency(currencyAmount, inputCurrency, outputCurrency));
+    }, [currencyAmount, inputCurrency, outputCurrency]);
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
+        <form className="form">
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Wprowadź dane</legend>
                 <p>
@@ -72,9 +70,8 @@ const Form = () => {
                         </select>
                     </label>
                 </p>
-                <button className="form__button">KONWERTUJ</button>
                 <div className="form__resultText">
-                    {resultText}
+                    {`${currencyAmount} ${inputCurrency} = ${conversionResult} ${outputCurrency}`}
                 </div>
             </fieldset>
         </form>
