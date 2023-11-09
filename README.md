@@ -17,6 +17,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     * Webpack
     * ESLint
     * Babel, etc.
+  * Asynchronous
+    * setInterval
 
 ## Site functionality
 ![converter-use](https://github.com/Kvasir124/currency-converter/assets/141030238/824fea5a-12ec-4087-9a66-47ee2164813d)
