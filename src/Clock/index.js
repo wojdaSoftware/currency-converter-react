@@ -5,7 +5,7 @@ const Clock = () => {
     const [date, setDate] = useState(new Date());
 
     const formatDate = (date) => {
-        return date.toLocaleString(undefined, {
+        return date.toLocaleString("pl-PL", {
             weekday: "long",
             day: "numeric",
             month: "long",
