@@ -1,5 +1,6 @@
-import './style.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import './styled.js';
+import { ClockContainer } from './styled.js';
 
 const Clock = () => {
     const [date, setDate] = useState(new Date());
@@ -26,9 +27,9 @@ const Clock = () => {
     }, []);
 
     return (
-        <div className="clockContainer">
+        <ClockContainer>
             Dziś jest {formatDate(date)}
-        </div>
+        </ClockContainer>
     )
 }
 
