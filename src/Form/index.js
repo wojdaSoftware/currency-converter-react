@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './style.css'
+import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
 
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
@@ -27,54 +27,52 @@ const Form = () => {
     }, [currencyAmount, inputCurrency, outputCurrency]);
 
     return (
-        <form className="form">
-            <fieldset className="form__fieldset">
-                <legend className="form__legend">Wprowadź dane</legend>
+        <StyledForm>
+            <Fieldset>
+                <Legend>Wprowadź dane</Legend>
                 <p>
                     <label>
-                        <span className="form__labelText">Wpisz kwotę:</span>
-                        <input
+                        <LabelText>Wpisz kwotę:</LabelText>
+                        <InputField
                             type="number"
                             name="amount"
                             step="0.01"
                             min="0.01"
-                            className="form__field"
                             value={currencyAmount}
                             onChange={(event) => setCurrencyAmount(event.target.value)}
                             required
                         />
                     </label>
-                    <select
+                    <SelectField
+                        secondary
                         name="currency-input"
-                        className="form__field form__field--secondary"
                         defaultValue={inputCurrency}
                         onChange={(event) => setInputCurrency(event.target.value)}
                     >
                         <option>PLN</option>
                         <option>USD</option>
                         <option>EUR</option>
-                    </select>
+                    </SelectField>
                 </p>
                 <p>
                     <label>
-                        <span className="form__labelText">Wybierz walutę:</span>
-                        <select
+                        <LabelText>Wybierz walutę:</LabelText>
+                        <SelectField
                             name="currency-output"
-                            className="form__field"
                             defaultValue={outputCurrency}
                             onChange={(event) => setOutputCurrency(event.target.value)}
                         >
                             <option value="PLN">Złoty (PLN)</option>
                             <option value="USD">Dolar amerykański (USD)</option>
                             <option value="EUR">Euro (EUR)</option>
-                        </select>
+                        </SelectField>
                     </label>
                 </p>
-                <div className="form__resultText">
+                <ResultContainer>
                     {`${currencyAmount} ${inputCurrency} = ${conversionResult} ${outputCurrency}`}
-                </div>
-            </fieldset>
-        </form>
+                </ResultContainer>
+            </Fieldset>
+        </StyledForm>
 
     )
 };
