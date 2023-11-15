@@ -1,4 +1,6 @@
-.main {
+import styled from "styled-components";
+
+export const Main = styled.main`
     margin: auto;
     max-width: 600px;
     display: flex;
@@ -7,4 +9,4 @@
     align-items: center;
     align-content: center;
     height: 100vh;
-}
+`;
