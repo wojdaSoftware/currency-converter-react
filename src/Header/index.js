@@ -1,11 +1,11 @@
-import './style.css';
+import { StyledHeader, Subtitle, Title } from './styled.js';
 
-const Header = ({aboveTitleContent}) => (
-    <header className="header">
+const Header = ({ aboveTitleContent }) => (
+    <StyledHeader>
         {aboveTitleContent}
-        <h1 className="header__title">$ KALKULATOR WALUT $</h1>
-        <h2 className="header__subtitle">Kursy walut z dnia 24 lipca 2023 roku</h2>
-    </header>
+        <Title>$ KALKULATOR WALUT $</Title>
+        <Subtitle>Kursy walut z dnia 24 lipca 2023 roku</Subtitle>
+    </StyledHeader>
 );
 
 export default Header;
