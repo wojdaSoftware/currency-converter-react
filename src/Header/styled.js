@@ -5,10 +5,10 @@ export const StyledHeader = styled.header`
     margin: auto;
     max-width: 600px;
     text-align: center;
-    background-color: #646464;
-    color: #fffd7c;
+    background-color: ${({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.ternary};
     border-radius: 10px;
-    border: 2px solid #646464;
+    border: 2px solid ${({theme}) => theme.colors.primary};
     box-shadow: 0px 0px 10px 3px rgba(10, 10, 10, 1);
 `;
 
@@ -17,6 +17,6 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-    color: #d1d1d1;
+    color: ${({theme}) => theme.colors.secondary};
     font-weight: 400;
 `;

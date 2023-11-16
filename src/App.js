@@ -7,7 +7,6 @@ import { GlobalStyle } from "./GlobalStyle";
 
 
 const theme = {
-  breakpoint: 767,
   colors: {
     primary: "#646464",
     secondary: "#cfcfcf",
