@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './styled.js';
 import { ClockContainer } from './styled.js';
 
 const Clock = () => {
