@@ -17,19 +17,19 @@ const useCurrentDate = () => {
     return date;
 };
 
+const formatDate = (date) => {
+    return date.toLocaleString("pl-PL", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+};
+
 const Clock = () => {
     const date = useCurrentDate();
-
-    const formatDate = (date) => {
-        return date.toLocaleString("pl-PL", {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-        });
-    };
 
     return (
         <ClockContainer>
