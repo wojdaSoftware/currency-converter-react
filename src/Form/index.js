@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
+import { exchangeRates } from './exchangeRates.js';
 
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
@@ -7,17 +8,7 @@ const Form = () => {
     const [outputCurrency, setOutputCurrency] = useState("EUR");
     const [conversionResult, setConversionResult] = useState("");
 
-    /* const updateResultText = (currencyAmount, conversionResult, outputCurrency, inputCurrency) => (
-        `${currencyAmount} ${inputCurrency} = ${conversionResult.toFixed(2)} ${outputCurrency}`
-    ); */
-
     const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
-        const exchangeRates = {
-            PLN: { PLN: 1, USD: 0.25, EUR: 0.22 },
-            USD: { PLN: 4.01, USD: 1, EUR: 0.90 },
-            EUR: { PLN: 4.45, USD: 1.11, EUR: 1 },
-        };
-
         const exchangeRate = exchangeRates[inputCurrency][outputCurrency];
         return (currencyAmount * exchangeRate).toFixed(2);
     };
