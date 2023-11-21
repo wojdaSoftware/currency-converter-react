@@ -22,12 +22,16 @@ const Form = () => {
         return (currencyAmount * exchangeRate).toFixed(2);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
     useEffect(() => {
         setConversionResult(convertCurrency(currencyAmount, inputCurrency, outputCurrency));
     }, [currencyAmount, inputCurrency, outputCurrency]);
 
     return (
-        <StyledForm>
+        <StyledForm onSubmit={handleSubmit}>
             <Fieldset>
                 <Legend>Wprowadź dane</Legend>
                 <p>
