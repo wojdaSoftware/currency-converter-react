@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import Header from "./Header";
 import Form from "./Form";
-import Container from "./Content";
+import Container from "./Container";
 import Clock from "./Clock";
 import { GlobalStyle } from "./GlobalStyle";
 
