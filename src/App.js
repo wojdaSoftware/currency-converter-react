@@ -5,7 +5,6 @@ import Container from "./Container";
 import Clock from "./Clock";
 import { GlobalStyle } from "./GlobalStyle";
 
-
 const theme = {
   colors: {
     primary: "#646464",
