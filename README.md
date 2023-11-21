@@ -9,11 +9,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Technologies
 * HTML
 * CSS
-  * BEM naming convention
-  * Normalize.css
+  * styled-components
+  * normalize.css
 * Javascript
   * ES6+ features
   * create-react-app
+    * Custom hooks
     * Webpack
     * ESLint
     * Babel, etc.
