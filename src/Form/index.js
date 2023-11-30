@@ -5,8 +5,6 @@ import useConverter from '../useConverter.js';
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [currency, setCurrency] = useState("EUR");
-
-    const conversionResult = useConverter(currency, currencyAmount);
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -46,7 +44,7 @@ const Form = () => {
                     </label>
                 </p>
                 <ResultContainer>
-                    {`${currencyAmount} PLN = ${conversionResult} ${currency}`}
+                    {`${currencyAmount} PLN = ${useConverter(currency, currencyAmount)} ${currency}`}
                 </ResultContainer>
             </Fieldset>
         </StyledForm>
