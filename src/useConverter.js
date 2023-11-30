@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { exchangeRates } from './exchangeRates.js';
+import getExchangeRates from './getExchangeRates';
 
 const useConverter = (currency, currencyAmount) => {
     const [conversionResult, setConversionResult] = useState("");
+    const exchangeRates = {USD: 4, EUR: 3, GBP:2};
 
     useEffect(() => {
         const exchangeRate = exchangeRates[currency];
