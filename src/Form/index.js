@@ -2,24 +2,27 @@ import { useState, useEffect } from 'react';
 import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
 import { exchangeRates } from './exchangeRates.js';
 
-const Form = () => {
-    const [currencyAmount, setCurrencyAmount] = useState("");
-    const [inputCurrency, setInputCurrency] = useState("PLN");
-    const [outputCurrency, setOutputCurrency] = useState("EUR");
+const useConverter = (currency, currencyAmount) => {
     const [conversionResult, setConversionResult] = useState("");
 
-    const convertCurrency = (currencyAmount, inputCurrency, outputCurrency) => {
-        const exchangeRate = exchangeRates[inputCurrency][outputCurrency];
-        return (currencyAmount * exchangeRate).toFixed(2);
-    };
+    useEffect(() => {
+        const exchangeRate = exchangeRates[currency];
+        const result = (currencyAmount * exchangeRate).toFixed(2);
+        setConversionResult(result);
+    }, [currencyAmount, currency]);
 
+    return conversionResult;
+}
+
+const Form = () => {
+    const [currencyAmount, setCurrencyAmount] = useState("");
+    const [currency, setCurrency] = useState("EUR");
+
+    const conversionResult = useConverter(currency, currencyAmount);
+    
     const handleSubmit = (event) => {
         event.preventDefault();
     };
-
-    useEffect(() => {
-        setConversionResult(convertCurrency(currencyAmount, inputCurrency, outputCurrency));
-    }, [currencyAmount, inputCurrency, outputCurrency]);
 
     return (
         <StyledForm onSubmit={handleSubmit}>
@@ -38,33 +41,24 @@ const Form = () => {
                             required
                         />
                     </label>
-                    <SelectField
-                        secondary
-                        name="currency-input"
-                        defaultValue={inputCurrency}
-                        onChange={(event) => setInputCurrency(event.target.value)}
-                    >
-                        <option>PLN</option>
-                        <option>USD</option>
-                        <option>EUR</option>
-                    </SelectField>
+                    <span>{` PLN`}</span>
                 </p>
                 <p>
                     <label>
                         <LabelText>Wybierz walutę:</LabelText>
                         <SelectField
-                            name="currency-output"
-                            defaultValue={outputCurrency}
-                            onChange={(event) => setOutputCurrency(event.target.value)}
+                            name="currency"
+                            defaultValue={currency}
+                            onChange={(event) => setCurrency(event.target.value)}
                         >
-                            <option value="PLN">Złoty (PLN)</option>
-                            <option value="USD">Dolar amerykański (USD)</option>
                             <option value="EUR">Euro (EUR)</option>
+                            <option value="USD">Dolar amerykański (USD)</option>
+                            <option value="GBP">Funt brytyjski (GBP)</option>
                         </SelectField>
                     </label>
                 </p>
                 <ResultContainer>
-                    {`${currencyAmount} ${inputCurrency} = ${conversionResult} ${outputCurrency}`}
+                    {`${currencyAmount} PLN = ${conversionResult} ${currency}`}
                 </ResultContainer>
             </Fieldset>
         </StyledForm>
