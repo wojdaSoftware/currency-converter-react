@@ -1,18 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
-import { exchangeRates } from './exchangeRates.js';
-
-const useConverter = (currency, currencyAmount) => {
-    const [conversionResult, setConversionResult] = useState("");
-
-    useEffect(() => {
-        const exchangeRate = exchangeRates[currency];
-        const result = (currencyAmount * exchangeRate).toFixed(2);
-        setConversionResult(result);
-    }, [currencyAmount, currency]);
-
-    return conversionResult;
-}
+import useConverter from '../useConverter.js';
 
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
