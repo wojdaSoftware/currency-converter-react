@@ -1,12 +1,16 @@
 import { StyledHeader, Subtitle, Title } from './styled.js';
-import { useState, useEffect } from 'react';
 import useExchangeRates from '../useExchangeRates';
+import { formatDate } from '../utils/formatDate.js';
 
-const Header = ({ aboveTitleContent }) => (
+const Header = ({ aboveTitleContent, fetchDate }) => (
     <StyledHeader>
         {aboveTitleContent}
         <Title>$ KALKULATOR WALUT $</Title>
-        <Subtitle>Kursy walut z dnia {}</Subtitle>
+        <Subtitle>Kursy walut z dnia {formatDate(fetchDate, {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric",
+        })}</Subtitle>
     </StyledHeader>
 );
 

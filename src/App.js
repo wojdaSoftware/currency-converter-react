@@ -18,7 +18,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header aboveTitleContent={<Clock />} />
+        <Header
+          aboveTitleContent={<Clock />}
+          fetchDate={new Date()}
+        />
         <Form />
       </Container>
     </ThemeProvider>
