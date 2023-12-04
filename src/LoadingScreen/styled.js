@@ -20,4 +20,13 @@ export const StyledContainer = styled.div`
 export const StyledImage = styled.img`
     display: block;
     height: 50%;
+    animation: rotation 2s infinite linear;
+    @keyframes rotation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
 `
