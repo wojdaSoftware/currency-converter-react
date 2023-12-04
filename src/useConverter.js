@@ -13,7 +13,7 @@ const useConverter = (currency, currencyAmount) => {
 
     useEffect(() => {
         if (exchangeRates) {
-            const exchangeRate = exchangeRates.data.data[currency].value;
+            const exchangeRate = exchangeRates.data[currency].value;
             const result = (currencyAmount * exchangeRate).toFixed(2);
             setConversionResult(result);
         }
