@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
-import useConverter from '../useConverter.js';
 
 const Form = () => {
     const [currencyAmount, setCurrencyAmount] = useState("");
@@ -44,7 +43,7 @@ const Form = () => {
                     </label>
                 </p>
                 <ResultContainer>
-                    {`${currencyAmount} PLN = ${useConverter(currency, currencyAmount)} ${currency}`}
+                    {`Tu będzie wynik`}
                 </ResultContainer>
             </Fieldset>
         </StyledForm>
