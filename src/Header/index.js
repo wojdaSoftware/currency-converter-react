@@ -1,5 +1,4 @@
 import { StyledHeader, Subtitle, Title } from './styled.js';
-import useExchangeRates from '../useExchangeRates';
 import { formatDate } from '../utils/formatDate.js';
 
 const Header = ({ aboveTitleContent, fetchDateData }) => (
