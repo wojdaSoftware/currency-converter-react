@@ -4,6 +4,8 @@ import Form from "./Form";
 import Container from "./Container";
 import Clock from "./Clock";
 import { GlobalStyle } from "./GlobalStyle";
+import useExchangeRates from "./useExchangeRates";
+import LoadingScreen from "./LoadingScreen";
 
 const theme = {
   colors: {
@@ -14,15 +16,19 @@ const theme = {
 }
 
 function App() {
+  const { exchangeRates } = useExchangeRates();
+  console.log(exchangeRates);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <Header
-          aboveTitleContent={<Clock />}
-          fetchDate={new Date()}
-        />
-        <Form />
+        <LoadingScreen exchangeRates={exchangeRates}>
+          <Header
+            aboveTitleContent={<Clock />}
+            fetchDateData={exchangeRates.data}
+          />
+          <Form />
+        </LoadingScreen>
       </Container>
     </ThemeProvider>
   );

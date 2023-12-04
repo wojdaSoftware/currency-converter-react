@@ -2,15 +2,15 @@ import { StyledHeader, Subtitle, Title } from './styled.js';
 import useExchangeRates from '../useExchangeRates';
 import { formatDate } from '../utils/formatDate.js';
 
-const Header = ({ aboveTitleContent, fetchDate }) => (
+const Header = ({ aboveTitleContent, fetchDateData }) => (
     <StyledHeader>
         {aboveTitleContent}
         <Title>$ KALKULATOR WALUT $</Title>
-        <Subtitle>Kursy walut z dnia {formatDate(fetchDate, {
+        {fetchDateData && <Subtitle>Kursy walut z dnia {formatDate(new Date(fetchDateData.meta.last_updated_at), {
             day: "numeric",
             month: "numeric",
             year: "numeric",
-        })}</Subtitle>
+        })}</Subtitle>}
     </StyledHeader>
 );
 
