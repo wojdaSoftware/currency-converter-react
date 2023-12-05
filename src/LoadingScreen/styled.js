@@ -30,3 +30,7 @@ export const StyledImage = styled.img`
         }
     }
 `
+
+export const StyledHeader = styled.h1`
+    color: ${({ theme }) => theme.colors.ternary};
+`
