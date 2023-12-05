@@ -26,7 +26,7 @@ function App() {
             aboveTitleContent={<Clock />}
             fetchData={exchangeRates.data}
           />
-          <Form />
+          <Form fetchData={exchangeRates.data} />
         </LoadingScreen>
       </Container>
     </ThemeProvider>

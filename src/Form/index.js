@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Fieldset, InputField, LabelText, Legend, ResultContainer, SelectField, StyledForm } from './styled.js';
 
-const Form = () => {
+const calculateResult = (currencyAmount, exchangeRate) => currencyAmount * exchangeRate
+
+const Form = ({ fetchData }) => {
     const [currencyAmount, setCurrencyAmount] = useState("");
     const [currency, setCurrency] = useState("EUR");
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
     };
@@ -43,11 +45,10 @@ const Form = () => {
                     </label>
                 </p>
                 <ResultContainer>
-                    {`Tu będzie wynik`}
+                    {`${currencyAmount} PLN = ${calculateResult(currencyAmount, fetchData.data[currency].value).toFixed(2)} ${currency}`}
                 </ResultContainer>
             </Fieldset>
         </StyledForm>
-
     )
 };
 
