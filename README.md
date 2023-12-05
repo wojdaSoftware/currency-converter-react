@@ -11,6 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * CSS
   * styled-components
   * normalize.css
+  * animation
 * Javascript
   * ES6+ features
   * create-react-app
@@ -18,13 +19,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     * Webpack
     * ESLint
     * Babel, etc.
+    * axios
   * Asynchronous
     * setInterval
+    * async/await
 
 ## Site functionality
 ![converter-use](https://github.com/Kvasir124/currency-converter/assets/141030238/824fea5a-12ec-4087-9a66-47ee2164813d)
 
-The site maintains basic reactivity and handles small screens well. The whole converter is fit inside a form. The user may choose a custom amount of currency (must be >0;  the minimal step is 0,01) and choose both the input and output currency. Conversion happens in real time. Exchange rates are stored in nested objects. The chosen amount of currency is multiplied by the determined exchange rate and shown to the user in the box below the submit button. In the top right corner of the page, there is a clock that displays the current date and time in Poland.
+The site maintains basic reactivity and handles small screens well. The whole converter is fit inside a form. The user may choose a custom amount of currency (must be >0;  the minimal step is 0,01) and choose the output currency. Conversion happens in real time. Exchange rates are fetched from an external API. The chosen amount of currency is multiplied by the determined exchange rate and shown to the user in the box below the submit button. In the top right corner of the page, there is a clock that displays the current date and time in Poland.
 
 # React.js
 
