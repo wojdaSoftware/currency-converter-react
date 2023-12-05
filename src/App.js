@@ -17,7 +17,6 @@ const theme = {
 
 function App() {
   const { exchangeRates } = useExchangeRates();
-  console.log(exchangeRates);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -25,7 +24,7 @@ function App() {
         <LoadingScreen exchangeRates={exchangeRates}>
           <Header
             aboveTitleContent={<Clock />}
-            fetchDateData={exchangeRates.data}
+            fetchData={exchangeRates.data}
           />
           <Form />
         </LoadingScreen>
