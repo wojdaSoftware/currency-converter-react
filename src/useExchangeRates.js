@@ -12,7 +12,7 @@ const useExchangeRates = () => {
     useEffect(() => {
         setTimeout(async () => {
             try {
-                const response = await axios.get(exchangeRateURL.static);
+                const response = await axios.get(exchangeRateURL.dynamic);
                 setExchangeRates({
                     status: "success",
                     data: response.data,
