@@ -38,9 +38,11 @@ const Form = ({ fetchData }) => {
                             defaultValue={currency}
                             onChange={(event) => setCurrency(event.target.value)}
                         >
-                            <option value="EUR">Euro (EUR)</option>
-                            <option value="USD">Dolar amerykański (USD)</option>
-                            <option value="GBP">Funt brytyjski (GBP)</option>
+                            {Object.keys(fetchData.data).map((key) => (
+                                <option>
+                                    {key}
+                                </option>
+                            ))}
                         </SelectField>
                     </label>
                 </p>
