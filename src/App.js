@@ -17,17 +17,24 @@ const theme = {
 
 function App() {
   const { exchangeRates } = useExchangeRates();
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
-        <LoadingScreen exchangeRates={exchangeRates}>
-          <Header
-            aboveTitleContent={<Clock />}
-            fetchData={exchangeRates.data}
-          />
-          <Form fetchData={exchangeRates.data} />
-        </LoadingScreen>
+        {
+          exchangeRates.status !== "success" ? (
+            <LoadingScreen exchangeRates={exchangeRates} />
+          ) : (
+            <>
+              <Header
+                aboveTitleContent={<Clock />}
+                fetchData={exchangeRates.data}
+              />
+              <Form fetchData={exchangeRates.data} />
+            </>
+          )
+        }
       </Container>
     </ThemeProvider>
   );

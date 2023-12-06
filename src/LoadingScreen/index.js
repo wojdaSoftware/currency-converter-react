@@ -1,22 +1,15 @@
 import { StyledContainer, StyledHeader, StyledImage } from "./styled";
 import loadingImage from './loading.png'
 
-const LoadingScreen = ({ children, exchangeRates }) => {
-    if (exchangeRates.status === "success") {
-        return children
-    };
-
-    if (exchangeRates.status === "error") {
-        return (
-            <StyledContainer>
-                <StyledHeader>Nie udało się pobrać kursów walut!</StyledHeader>
-            </StyledContainer>
-        )
-    };
+const LoadingScreen = ({ exchangeRates }) => {
 
     return (
         <StyledContainer>
-            <StyledImage src={loadingImage} alt="Ikona ładowania" />
+            {
+                exchangeRates.status === "pending"
+                    ? <StyledImage src={loadingImage} alt="Ikona ładowania" />
+                    : <StyledHeader>Nie udało się pobrać kursów walut!</StyledHeader>
+            }
         </StyledContainer>
     )
 };
