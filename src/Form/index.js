@@ -39,7 +39,7 @@ const Form = ({ fetchData }) => {
                             onChange={(event) => setCurrency(event.target.value)}
                         >
                             {Object.keys(fetchData.data).map((key) => (
-                                <option>
+                                <option key={key}>
                                     {key}
                                 </option>
                             ))}
