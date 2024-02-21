@@ -2,7 +2,7 @@
 
 This site is a simple currency converter with 3 currencies to choose from.
 
-Check the site [**here**](https://kvasir124.github.io/currency-converter-react/).
+Check the site [**here**](https://wojdaSoftware.github.io/currency-converter-react/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -25,7 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     * async/await
 
 ## Site functionality
-![converter-use](https://github.com/Kvasir124/currency-converter/assets/141030238/824fea5a-12ec-4087-9a66-47ee2164813d)
+![converter-use](https://github.com/wojdaSoftware/currency-converter/assets/141030238/824fea5a-12ec-4087-9a66-47ee2164813d)
 
 The site maintains basic reactivity and handles small screens well. The whole converter is fit inside a form. The user may choose a custom amount of currency (must be >0;  the minimal step is 0,01) and choose the output currency. Conversion happens in real time. Exchange rates are fetched from an external API. The chosen amount of currency is multiplied by the determined exchange rate and shown to the user in the box below the submit button. In the top right corner of the page, there is a clock that displays the current date and time in Poland.
 
